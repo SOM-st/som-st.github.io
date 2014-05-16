@@ -1,0 +1,11 @@
+# Site settings
+title: "SOM: Simple Object Machine"
+email:
+description: "A minimal Smalltalk for teaching of and research on Virtual Machines."
+baseurl: ""
+url: "http://som-st.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+highligher: rouge
