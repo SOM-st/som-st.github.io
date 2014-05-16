@@ -1,0 +1,261 @@
+---
+layout: default
+---
+
+<div class="content-section odd">
+<div class="wrap">
+  <figure>
+  <img src="images/som-logo.svg" style="margin:auto; display:block" title="The Simple Object Machine" />
+  <figcaption><cite>A minimal Smalltalk for <em>teaching</em> of and <em>research</em> on Virtual Machines.</cite></figcaption>
+  </figure>
+</div>
+</div>
+
+  
+<div class="content-section even">
+  <div class="wrap">
+    <h1>SOM Language Example</h1>
+  <figure>
+  <code>Fibonacci = (          <span class="som comment" title="this is a comment">"defines a subclass of Object"</span>
+    fib: <span class="som arg">n</span> = (         <span class="som comment" title="this is a comment">"defines the fib method with the argument <span class="som arg">n</span>"</span>
+        ^ <span class="som arg">n</span> <= <span class="som number">1</span>
+            ifTrue:  <span class="som number">1</span>
+            ifFalse: [ <span class="som self">self</span> fib: (<span class="som arg">n</span> - <span class="som number">1</span>) + (<span class="som self">self</span> fib: (<span class="som arg">n</span> - <span class="som number">2</span>)) ]
+    )
+)</code>
+  <figcaption>A simple class implementing <code>#fib:</code> to compute the fibonacci numbers.<br/>For more, see the <a href="https://github.com/SOM-st/SOM">standard library <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span></a>
+</figcaption>
+  </figure>
+  </div>
+</div>
+
+<div class="content-section odd">
+<div class="wrap">
+
+  <h1>Implementations</h1>  
+  
+<ul class="som-impl">
+  
+  <li class="som-impl">
+   <img src="images/java-logo.svg" class="lang-logo" />
+   <ul>
+     <li><a href="https://github.com/SOM-st/som-java">SOM</a></li>
+     <li><a href="https://github.com/SOM-st/TruffleSOM">TruffleSOM</a></li></ul>
+  </li>
+  
+  <li class="som-impl">
+    <div class="lang-logo"><span class="text-logo">C</div>
+    <ul><li><a href="https://github.com/SOM-st/CSOM">CSOM</a></li></ul>
+  </li>
+  
+  <li class="som-impl">
+    <div class="lang-logo" style="width:80px;"><span class="text-logo">C++</div>
+    <ul><li><a href="https://github.com/SOM-st/SOMpp">SOM++</a></li></ul>
+  </li>
+  
+  
+  <li class="som-impl">
+    <img src="images/python-logo.svg" class="lang-logo" />
+    <ul><li><a href="https://github.com/SOM-st/PySOM">PySOM</a></li></ul>
+  </li>
+  
+  <li class="som-impl">
+    <img src="images/pypy-logo.svg" class="lang-logo" />
+    <ul>
+      <li><a href="https://github.com/SOM-st/RPySOM">RPySOM</a></li>
+      <li><a href="https://github.com/SOM-st/RTruffleSOM">RTruffleSOM</a></li></ul>
+  </li>
+  
+  <li class="som-impl">
+    <img src="images/smalltalk-logo.svg" class="lang-logo" />
+    <ul><li><a href="http://smalltalkhub.com/#!/~StefanMarr/AweSOM">AweSOM</a></li>
+  </li>
+</ul></div></div>
+
+<div class="content-section even">
+<div class="wrap">
+
+  <h1>Key Characteristics</h1>
+  
+  <ul class="two-col">
+    <li>8 main implementations</li>
+    <li>clarity of implementation over absolute performance</li>
+    <li>support for common language features such as objects, classes, closures, non-local returns, and primitives</li>
+    <li>support for classic benchmarks: DeltaBlue, Richards, Benchmark Game, ...</li>
+    <li>implementation variations include:
+        <ul>
+          <li>abstract-syntax-tree-based or bytecode-based</li>
+          <li>classic interpreter optimizations</li>
+          <li>green and native threading</li>
+          <li>reference counting, mark/sweep, and generational garbage collectors</li>
+        </ul></li>
+    <li>implementations ranging from 2.5k LOC to 8k LOC</li>
+    
+  </ul>
+</div></div>
+
+<div class="content-section odd">
+<div class="wrap">
+
+  <h1>Performance</h1>
+  <figure style="text-align:center">
+    <img src="images/som-box-overview.svg" />
+    <figcaption>Performance of some of the SOM implementations compared to Java.<br/>
+      Based on data from May 2014, using DeltaBlue, Fannkuch, Mandelbrot, and Richards as benchmarks.</figcaption>
+  </figure>
+
+</div></div>
+
+<div class="content-section even">
+<div class="wrap">
+
+  <h1>Use in Teaching and Research: A Brief Chronology</h1>
+  <p style="text-align:center;">A brief and incomplete list of papers and universities where SOM has been used in the past.</p>
+  
+  <!-- TODO: OMOP -->
+  <!-- TODO: Pauseless GC -->
+  
+<div class="history">
+  
+  <div>
+      <img src="images/software-languages-lab-logo.svg" />
+      <p>
+        The SOM variants were used for a number of experiments such as ActorSOM,
+        a SOM with a event-loop concurrency model similar to AmbientTalk. 
+      </p>
+  </div>
+  
+  <div>
+      <img src="images/hhu-dus-logo.svg" />
+      <p>
+        SOM++ was optimized and extended with a generational garbage collector
+        as part of <a href="http://www.stups.uni-duesseldorf.de/mediawiki/images/2/25/Master_boland.pdf">a master's thesis</a>. 
+      </p>
+  </div>
+  
+  <div>
+      <img src="images/paper-logo.png" />
+      <p>
+        CSOM/PL: A Virtual Machine Product Line.<br/>
+        Haupt, Michael; Marr, Stefan and Hirschfeld, Robert.<br/>
+        Journal of Object Technology 10 , no. 12 (2011): 1-30, doi: <a href="http://dx.doi.org/10.5381/jot.2011.10.1.a12">10.5381/jot.2011.10.1.a12</a>,
+        <a href="http://www.jot.fm/issues/issue_2011_01/article12.pdf">PDF</a>.
+      </p>
+  </div>
+
+  <div>
+    <img src="images/paper-logo.png" />
+    <p>
+      Type Harvesting: A Practical Approach to Obtaining Typing Information in Dynamic Programming Languages.<br/>
+      Haupt, Michael; Perscheid, Michael and Hirschfeld, Robert.<br/>
+      Proceedings of the 2011 ACM Symposium on Applied Computing, 2011, doi: <a href="http://dx.doi.org/10.1145/1982185.1982464">10.1145/1982185.1982464</a>,
+      <a href="http://www.hpi.uni-potsdam.de/hirschfeld/publications/media/HauptPerscheidHirschfeld_2011_TypeHarvestingAPracticalApproachToObtainingTypingInformationInDynamicProgrammingLanguages_AcmDL.pdf">URL</a>.
+    </p>
+  </div>
+
+  <div>
+    <img src="images/paper-logo.png" />
+    <p>
+      Virtual Machine Support for Many-Core Architectures: Decoupling Abstract From Concrete Concurrency Models.<br/>
+      Marr, Stefan; Haupt, Michael; Timbermont, Stijn; Adams, Bram; D'Hondt, Theo; Costanza, Pascal and De Meuter, Wolfgang.<br/>
+      Second International Workshop on Programming Languages Approaches to Concurrency and Communication-cEntric Software, York, UK, 2010,
+      doi: <a href="http://dx.doi.org/10.4204/EPTCS.17.6">10.4204/EPTCS.17.6</a>,
+      <a href="http://www.stefan-marr.de/2010/02/virtual-machine-support-for-many-core-architectures-decoupling-abstract-from-concrete-concurrency-models/">URL</a>.
+    </p>
+  </div>
+
+  <div>
+    <img src="images/paper-logo.png" />
+    <p>The SOM Family: Virtual Machines for Teaching and Research.<br/>
+      Haupt, Michael; Hirschfeld, Robert; Pape, Tobias; Gabrysiak, Gregor; Marr, Stefan; Bergmann, Arne; Heise, Arvid; Kleine, Matthias and Krahn, Robert.
+      Proceedings of the 15th Annual Conference on Innovation and Technology in Computer Science Education (ITiCSE), 2010,
+      doi: <a href="http://dx.doi.org/10.1145/1822090.1822098">10.1145/1822090.1822098</a>,
+      <a href="http://www.hpi.uni-potsdam.de/hirschfeld/publications/media/HauptHirschfeldPapeGabrysiakMarrBergmannHeiseKleineKrahn_2010_TheSomFamily_AcmDL.pdf">PDF</a>.
+    </p>
+  </div>
+
+  <div>
+    <img src="images/tu-darmstadt-logo.svg" />
+    <p>In 2010, SOM was used by Michael Haupt to teach one graduate course at Technische Universit&auml;t Darmstadt (Germany).</p>
+  </div>  
+  
+  <div>
+    <img src="images/paper-logo.png" />
+    <p>NXTalk: Dynamic Object-oriented Programming in a Constrained Environment.<br/>
+      Beck, Martin; Haupt, Michael and Hirschfeld, Robert.
+      Proceedings of the International Workshop on Smalltalk Technologies, 2009,
+      doi: <a href="http://dx.doi.org/10.1145/1735935.1735942">10.1145/1735935.1735942</a>,
+      <a href="http://haupz.de/d/p/IWST2009a.pdf">PDF</a>.
+    </p>
+  </div>
+  
+  <div>
+    <img src="images/hpi_logo_kl.jpg" />
+    <p>SOM was used by Michael Haupt between 2007&ndash;2009 to teach a course on
+       Virtual Machines at the Hasso Plattner Institute in Potsdam.
+       Many of the feature variants of CSOM for instance support for Smalltalk images, threads, and
+       garbage collection have been developed as part of course work. <a href="http://www.hpi.uni-potsdam.de/hirschfeld/projects/som/">(more)</a>
+    </p>
+  </div>
+  
+  <div>
+    <img src="images/lancaster-university-logo.svg" />
+    <p>In 2006, SOM was used by Michael Haupt to teach one undergraduate course at Lancaster University (UK).</p>
+  </div>
+  
+  <div>
+    <img src="images/paper-logo.png" />
+    <p>Related to SOM, at least in syntax and spirit:<br/>
+      Design, implementation, and evaluation of the <em>Resilient Smalltalk</em> embedded platform.<br/>
+      Andersen, Jakob R.; Bak, Lars; Grarup, Steffen; Lund, Kasper V.; Eskildsen, Toke; Hansen, Klaus Marius and Torgersen, Mads.<br/>
+      Computer Languages, Systems &amp; Structures 31, no. 3&ndash;4 (2005): 127&ndash;141, doi: <a href="http://dx.doi.org/10.1016/j.cl.2005.02.003">10.1016/j.cl.2005.02.003</a>.
+    </p>
+  </div>
+  
+  <div>
+    <img src="images/aarhus-university-logo.jpg" alt="Aarhus University (logo)" />
+    <p>SOM was originally implemented at the University of &Aring;rhus in
+       Denmark by Jakob Roland Andersen, Kasper Verdich Lund, Lars Bak,
+       Mads Torgersen, and Ulrik Pagh Schultz in 2001/2002. It was used for 
+       teaching object-oriented VMs and came with the original version of the 
+       SOM Smalltalk libraries, test suites, and benchmarks.</p>
+</div></div>
+  
+</div></div>
+
+<!--
+<div class="content-section odd">
+<div class="wrap">
+
+  
+
+    posts, getting involved, etc...
+  
+  <h1>Posts</h1>
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
+</div> -->
