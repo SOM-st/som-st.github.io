@@ -255,8 +255,9 @@ cite em {font-style:normal;}
 
 ul.som-impl {
   list-style-type: none;
-  text-align: justify;
-  width:100%;
+  text-align: center;
+  width:80%;
+  margin: auto;
 }
 ul.som-impl ul {list-style-type: none; display: inline-block; vertical-align:middle;}
 
@@ -272,6 +273,7 @@ ul.som-impl:before {
 }
 li.som-impl {
     display: inline-block;
+    margin:0px 20px;
 }
 .text-logo {color:#bbbbbb;font-size:40px;line-height: 33px;font-weight:bold}
 
