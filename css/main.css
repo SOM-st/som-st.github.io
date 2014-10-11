@@ -304,3 +304,42 @@ ul.two-col ul {
 .history div {display: table-row; margin-top: 10px;}
 .history div img, .history div p {display: table-cell; vertical-align: top; padding: 15px 5px;}
 .history div img {margin: auto; max-width: 150px;}
+
+#repl-out {
+  width:600px;
+  height:200px;
+  padding:5px;
+  background-color:#000;
+  color:#fff;
+}
+
+.repl-input {
+    width:600px;
+    font-family:monospace;
+    margin:auto;
+}
+
+#repl-in {
+    border:0;
+    font-family:monospace;
+    box-shadow:none;
+    resize: none;
+    outline: none;
+    font-size: inherit;
+    height: 3ex;
+    background-color: inherit;
+    width:90%;
+    vertical-align: middle;
+}
+
+#repl { display: none;}
+
+#try-som {
+    position:absolute;
+    -webkit-transform:rotate(-90deg);
+       -moz-transform:rotate(-90deg);
+        -ms-transform:rotate(-90deg);
+         -o-transform:rotate(-90deg);
+    margin-top:80px;margin-left:700px;
+    font-weight:400
+}
