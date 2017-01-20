@@ -46,16 +46,22 @@ sudo apt install oracle-java8-installer git ant
 
 To checkout the code:
 
-    git clone https://github.com/smarr/SOMns.git
+```bash
+git clone https://github.com/smarr/SOMns.git
+```
 
 Then, SOMns can be build with Ant:
 
-    cd SOMns
-    ant compile  ## will also download dependencies
+```bash
+cd SOMns
+ant compile  ## will also download dependencies
+```
 
 Afterwards, the simple Hello World program is executed with:
 
-    ./som -G core-lib/Hello.som
+```bash
+./som -G core-lib/Hello.som
+```
 
 ### 1.3 Development Environment
 
@@ -129,7 +135,9 @@ In VM arguments, enable assertions with:
 
 I personally start the various SOMns programs from the command line:
 
-    ./som -d -G core-lib/Benchmarks/Harness.som Mandelbrot 2 0 500
+```bash
+./som -d -G core-lib/Benchmarks/Harness.som Mandelbrot 2 0 500
+```
 
 For this approach, we need a *Remote Java Application* debug configuration
 in Eclipse. After starting SOMns, it should tell you that it is waiting on port

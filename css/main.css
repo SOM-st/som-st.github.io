@@ -191,7 +191,9 @@ h1, h2, h3, h4, h5 {
     font-size: 180%;
 }
 
-.som.comment {color:#4e9a06;}
+.som.comment, .highlight .c {color:#4e9a06;}
+.som.string, .highlight .s2 {color:#66355c;}
+.highlight .nb {font-weight: bold;}
 .som.number  {color:#5c3566;}
 .som.arg     {font-style:italic;}
 .som.self    {color:#204a87;}
