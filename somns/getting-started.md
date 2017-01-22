@@ -299,7 +299,7 @@ dynamic execution metrics, or interactive debugging of SOMns code
 
 <div markdown="1" style="font-size:70%">
 ```
-$ ./som --help                                                                                                                                               ✹ ✭lee-tm
+$ ./som --help
 usage: som [-h] [-d] [-t THREADS] [-p SOM_PLATFORM] [-k SOM_KERNEL] [-dnu]
            [-i] [-if] [-io ONLY_IGV] [-l] [-ti] [-w] [-f] [-v] [-gp] [-ga]
            [-gi] [-gb] [-tp] [-td] [-wd] [-dm] [-at]
