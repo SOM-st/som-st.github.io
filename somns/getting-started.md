@@ -170,11 +170,11 @@ A brief list of steps:
 
 <div class="content-section odd"><div class="wrap" markdown="1">
 
-### 2. Repository and Code Layout
+## 2. Repository and Code Layout
 
 This section gives a brief overview over the most relevant elements.
 
-#### 2.1 Repository Root
+### 2.1 Repository Root
 
 ```bash
 .gitlab-ci.yml   # Configuration for the SOFT Build Server
@@ -190,7 +190,7 @@ tests            # Java unit tests and tests for DynamicMetrics tool
 tools            # Contains the Kompos Web Debugger
 ```
 
-#### 2.2 Code Layout: Java
+### 2.2 Code Layout: Java
 
 ```bash
 som
@@ -216,7 +216,7 @@ tools
 |- dym              # DynamicMetrics tool
 ```
 
-#### 2.3 Code Layout: SOMns
+### 2.3 Code Layout: SOMns
 
 ```bash
 core-lib
@@ -237,7 +237,7 @@ core-lib
 |- Transactions.som          # Software transactional memory classes
 ```
 
-#### 2.4 Code Layout: Kompos
+### 2.4 Code Layout: Kompos
 
 Kompos is a web-based debugger integrated into SOMns. It is based on Truffle's
 language agnostic debugger support and extends it to provide actor-specific
@@ -270,11 +270,45 @@ used to interface with the Java backend.
 
 <div class="content-section even"><div class="wrap" markdown="1">
 
-## 3. Infrastructure
+## 3. Basic Design
+
+This section gives a brief overview of some basic design aspects of SOMns and
+Kompos.
+
+### 3.1 Communication with Kompos
+
+Communication between Kompos and SOMns is implemented with WebSockets, the code can be found in [tools.debugger.FrontendConnector](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/FrontendConnector.java) and [vm-connection.ts](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/tools/kompos/src/vm-connection.ts). Data is transferred on two separate sockets, one is for JSON and the other one is for binary data.
+
+JSON is used for two-way communication in a message-oriented style. Message objects are [serialized to JSON](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/FrontendConnector.java#L181) when sending, and [received JSON data](https://github.com/smarr/SOMns/blob/16075443872e8de63e2bc71817552731f85eb1f0/src/tools/debugger/WebSocketHandler.java#L40) is used to create message objects.  Kompos also (de)serializes communication data, [messages.ts](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/tools/kompos/src/messages.ts) provides some interfaces that help accessing data of message objects.
+
+On the SOMns side, message classes need to be "registered" in [tools.debugger.WebDebugger.createJsonProcessor()](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/WebDebugger.java#L211), they extend either IncomingMessage or OutgoingMessage. When an IncomingMessage is received, its [process method](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/message/Message.java#L9) is called.
+
+The binary socket is used for directly sending tracing data, which is pushed to
+Kompos whenever available. Kompos parses the tracing data according to the
+trace format and uses the data to generate the actor graph.
+
+### 3.2 Trace Format
+
+The trace data includes currently the following events:
+
+- Actor creation
+- Promise creation
+- Promise resolution: when a Promise is resolved with a value.
+- Promise chained: when a Promise is resolved with another Promise.
+- Mailbox (continued): set the context for following message events (receiver, base message id), occurs when a mailbox is processed.
+- Message: can only occur after a mailbox (continued) or a message event, represents messages in the mailbox.
+
+</div></div>
+
+
+<div class="content-section even"><div class="wrap" markdown="1">
+
+
+## 4. Infrastructure
 
 Give a brief overview of some of the infrastructure used in SOMns.
 
-### 3.1 The `som` Launcher Script 
+### 4.1 The `som` Launcher Script 
 
 To document, simplify, and standardize how SOMns is started or debugged, we
 use a Python script to execute the actual Java program.
@@ -332,7 +366,7 @@ Tools
 ```
 </div>
 
-### 3.2 Build System
+### 4.2 Build System
 
 As seen earlier, SOMns uses Ant as build system. The setup tries to minimize
 the external software dependencies. Currently, instead of using some automatic
@@ -349,7 +383,7 @@ because it changes frequently, and we sometimes need changes in Truffle.
 Currently, SOMns also relies on a personal fork of Truffle to support changes
 in the instrumentation and debugging support.
 
-### 3.3 GitHub
+### 4.3 GitHub
 
 SOMns relies on GitHub, its issue tracking, and pull request system for
 development. 
@@ -365,7 +399,7 @@ should provide a good introduction to the SOMns code base, an basic
 understanding of how Truffle-based interpreters work, and a few SOMns specific
 insights.
 
-### 3.4 Code Style
+### 4.4 Code Style
 
 When working on SOMns code, please look at the code around you and stick to the
 style. It might be *particular*, but it is consistent in this code base.
@@ -379,7 +413,7 @@ your editor.
 We are also using Codacy to monitor additional style issues or potential bugs.
 See the [STM pull request](https://github.com/smarr/SOMns/pull/81#pullrequestreview-17422244) for examples.
 
-### 3.5 Development Support
+### 4.5 Development Support
 
 **Continuous Integration:** To automatically run unit tests for the interpreter, SOMns, and the debugger,
 we use [Travis CI](https://travis-ci.org/smarr/SOMns/builds) (see `.travis.yml`)
