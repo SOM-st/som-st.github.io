@@ -170,11 +170,11 @@ A brief list of steps:
 
 <div class="content-section odd"><div class="wrap" markdown="1">
 
-### 2. Repository and Code Layout
+## 2. Repository and Code Layout
 
 This section gives a brief overview over the most relevant elements.
 
-#### 2.1 Repository Root
+### 2.1 Repository Root
 
 ```bash
 .gitlab-ci.yml   # Configuration for the SOFT Build Server
@@ -190,7 +190,7 @@ tests            # Java unit tests and tests for DynamicMetrics tool
 tools            # Contains the Kompos Web Debugger
 ```
 
-#### 2.2 Code Layout: Java
+### 2.2 Code Layout: Java
 
 ```bash
 som
@@ -216,7 +216,7 @@ tools
 |- dym              # DynamicMetrics tool
 ```
 
-#### 2.3 Code Layout: SOMns
+### 2.3 Code Layout: SOMns
 
 ```bash
 core-lib
@@ -237,7 +237,7 @@ core-lib
 |- Transactions.som          # Software transactional memory classes
 ```
 
-#### 2.4 Code Layout: Kompos
+### 2.4 Code Layout: Kompos
 
 Kompos is a web-based debugger integrated into SOMns. It is based on Truffle's
 language agnostic debugger support and extends it to provide actor-specific
