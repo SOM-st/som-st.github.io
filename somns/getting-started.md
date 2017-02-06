@@ -301,7 +301,7 @@ The trace data includes currently the following events:
 </div></div>
 
 
-<div class="content-section odd"><div class="wrap" markdown="1">
+<div class="content-section even"><div class="wrap" markdown="1">
 
 
 ## 4. Infrastructure
