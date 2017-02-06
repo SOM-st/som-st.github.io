@@ -271,21 +271,38 @@ used to interface with the Java backend.
 <div class="content-section even"><div class="wrap" markdown="1">
 
 ## 3. Basic Design
-This section gives a brief overview of the Design.
-### 3.1 Communication with compos
-Commucication between Kompos and SOMns is implemented with Websockets, the code can be found in [tools.debugger.FrontendConnector](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/FrontendConnector.java) and [vm-connection.ts](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/tools/kompos/src/vm-connection.ts). Data is transfered on two separate sockets, one is for json and the other one is for binary data.
-Json is used for two-way communication in a message oriented style. Message objects are [serialized to json](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/FrontendConnector.java#L181) when sending, and received json data is used to create message objects.  Kompos also (de)serializes communication data, [messages.ts](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/tools/kompos/src/messages.ts) provides some interfaces that help accessing data of message objects.
-Message classes need to be "registered" in [tools.debugger.WebDebugger.createJsonProcessor()](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/WebDebugger.java#L211), they extend either IncomingMessage or OutgoingMessage. When an IncomingMessage is received, its [process method](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/message/Message.java#L9) is called.
-The binary socket is used for directly sending tracing data, which is pushed to kompos whenever available. Kompos parses the tracing data according to the trace format and uses the data to generate the actor graph.
+
+This section gives a brief overview of some basic design aspects of SOMns and
+Kompos.
+
+### 3.1 Communication with Kompos
+
+Communication between Kompos and SOMns is implemented with WebSockets, the code can be found in [tools.debugger.FrontendConnector](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/FrontendConnector.java) and [vm-connection.ts](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/tools/kompos/src/vm-connection.ts). Data is transferred on two separate sockets, one is for JSON and the other one is for binary data.
+
+JSON is used for two-way communication in a message-oriented style. Message objects are [serialized to JSON](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/FrontendConnector.java#L181) when sending, and [received JSON data](https://github.com/smarr/SOMns/blob/16075443872e8de63e2bc71817552731f85eb1f0/src/tools/debugger/WebSocketHandler.java#L40) is used to create message objects.  Kompos also (de)serializes communication data, [messages.ts](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/tools/kompos/src/messages.ts) provides some interfaces that help accessing data of message objects.
+
+On the SOMns side, message classes need to be "registered" in [tools.debugger.WebDebugger.createJsonProcessor()](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/WebDebugger.java#L211), they extend either IncomingMessage or OutgoingMessage. When an IncomingMessage is received, its [process method](https://github.com/MetaConc/SOMns/blob/16af2c3e3a41d13ab8c10ec289181db9284b49aa/src/tools/debugger/message/Message.java#L9) is called.
+
+The binary socket is used for directly sending tracing data, which is pushed to
+Kompos whenever available. Kompos parses the tracing data according to the
+trace format and uses the data to generate the actor graph.
 
 ### 3.2 Trace Format
-The Trace consists of a number of events:
-- Actor Creation
-- Promise Creation
-- Promise Resolution: when a Promise is resolved with a value.
-- Promise Chained: when a Promise is resolved with another Promise.
-- Mailbox (Continued): set the context for following message events (receiver, base message id), occurs when a mailbox is processed.
-- Message: can only occur after a mailbox (Continued) or a message event, represents messages in the mailbox.
+
+The trace data includes currently the following events:
+
+- Actor creation
+- Promise creation
+- Promise resolution: when a Promise is resolved with a value.
+- Promise chained: when a Promise is resolved with another Promise.
+- Mailbox (continued): set the context for following message events (receiver, base message id), occurs when a mailbox is processed.
+- Message: can only occur after a mailbox (continued) or a message event, represents messages in the mailbox.
+
+</div></div>
+
+
+<div class="content-section odd"><div class="wrap" markdown="1">
+
 
 ## 4. Infrastructure
 
