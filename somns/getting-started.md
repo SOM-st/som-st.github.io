@@ -298,11 +298,12 @@ The trace data includes currently the following events:
 - Mailbox (continued): set the context for following message events (receiver, base message id), occurs when a mailbox is processed.
 - Message: can only occur after a mailbox (continued) or a message event, represents messages in the mailbox.
 
-### 3.3 Startup protocol
-The following diagram gives an overview of the startup protocol. For simplicity the trace websocket and the view object are ignored.  
+### 3.3 Startup Protocol
+
+The following diagram gives an overview of the startup protocol. For simplicity the binary WebSocket for trace data and the view object are not included.
 
 <figure style="text-align:center">
-<img style="width:600px" src="../komposStartup.pdf" alt="kompos startup protocol" />
+<img style="width:600px" src="../kompos-startup.svg" alt="kompos startup protocol" />
 <figcaption>
 Simplified overview of startup protocol between SOMns interpreter and Kompos debugger. 
 </figcaption>
