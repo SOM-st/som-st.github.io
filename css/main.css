@@ -294,6 +294,7 @@ ul.two-col li {
 ul.two-col > li {
   padding-left: 1.5em;
   text-indent: -1em;
+  list-style-type: none;
 }
 
 ul.two-col ul {
