@@ -3,6 +3,4 @@ title:  "SOMns: A Simple Newspeak Implementation focusing on Concurrency Feature
 layout: default
 ---
 
-# SOMns: A Simple Newspeak Implementation focusing on Concurrency Features
-
-- [Getting Started Guide for SOMns Development](getting-started)
+This page moved to [somns.readthedocs.io](https://somns.readthedocs.io/en/dev/).
