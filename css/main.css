@@ -279,6 +279,23 @@ li.som-impl {
 }
 .text-logo {color:#bbbbbb;font-size:40px;line-height: 33px;font-weight:bold}
 
+#som-details li.som-impl {
+  list-style-type: circle;
+  width: 20em;
+  font-size: 70%;
+  text-align: left;
+}
+
+#som-details ul.som-impl ul {
+  list-style-type: circle;
+  text-align: left;
+  vertical-align: top;
+}
+
+#som-details h4 {
+  padding-top: 1em;
+}
+
 ul.two-col {
   columns: 2;
   -webkit-columns: 2;

@@ -161,6 +161,101 @@ layout: default
 
 </div></div>
 
+<div class="content-section" id="som-details">
+  <div class="wrap">
+  
+    <h1>SOM Implementations Overview</h1>
+    <p>
+      The various implementations support the same language,
+      but use different optimizations, implementation techniques,
+      and run on different platforms.
+    </p>
+
+    <ul class="som-impl">
+      <li class="som-impl">
+        <h4><a href="https://github.com/SOM-st/som-java">SOM</a></h4>
+        <ul>
+          <li>first implementation, in Java</li>
+          <li>bytecode-based</li>
+          <li>basic optimizations, e.g., inline caches</li>
+        </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/AweSOM">AweSOM</a></h4>
+          <ul>
+            <li>bytecode-based</li>
+            <li>implemented in Smalltalk</li>
+            <li>no optimizations</li>
+          </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/CSOM">CSOM</a></h4>
+          <ul>
+            <li>first port to other language, C</li>
+            <li>bytecode-based</li>
+            <li>no optimizations</li>
+            <li>mark/sweep garbage collector</li>
+            <li>supports Emscripten/WebAssembler</li>
+        </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/SOMpp">SOM++</a></h4>
+          <ul>
+            <li>bytecode-based, with jump bytecodes</li>
+            <li>implemented in C++</li>
+            <li>tagged integers</li>
+            <li>mark/sweep, copying, and generational garbage collectors</li>
+            <li>With OMR: GC support and a just-in-time compiler</li>
+          </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/PySOM">PySOM</a></h4>
+          <ul>
+            <li>bytecode-based, in Python</li>
+            <li>no optimizations</li>
+          </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/RPySOM">RPySOM</a></h4>
+          <ul>
+            <li>bytecode-based, in Python and RPython-compatible</li>
+            <li>highly optimized</li>
+          </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/TruffleSOM">TruffleSOM</a></h4>
+          <ul>
+            <li>implemented in Java, using the Truffle framework</li>
+            <li>abstract-syntax-tree-based</li>
+            <li>highly optimized</li>
+          </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/RTruffleSOM">RTruffleSOM</a></h4>
+          <ul>
+            <li>abstract-syntax-tree-based, in Python and RPython-compatible</li>
+            <li>highly optimized</li>
+          </ul>
+      </li>
+
+      <li class="som-impl">
+          <h4><a href="https://github.com/SOM-st/JsSOM">JsSOM</a></h4>
+          <ul>
+            <li>abstract-syntax-tree-based, in JavaScript</li>
+            <li>runs on Node.js and in browsers</li>
+          </ul>
+      </li>
+  
+  </div>
+</div>
+  
 <div class="content-section">
 <div class="wrap">
 <h1 id="community">Community</h1>
