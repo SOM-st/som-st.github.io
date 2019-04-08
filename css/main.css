@@ -318,6 +318,11 @@ ul.two-col ul {
   padding-left: 33px;
 }
 
+sub.ns {
+  font-size: 60%;
+  vertical-align: baseline;
+}
+
 .history {
   display: table;
 }
