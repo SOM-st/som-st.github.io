@@ -161,10 +161,10 @@ layout: default
 
 </div></div>
 
-<div class="content-section" id="som-details">
+<div class="content-section details-list">
   <div class="wrap">
   
-    <h1>SOM Implementations Overview</h1>
+    <h1 id="som-details">SOM Implementations Overview</h1>
     <p>
       The various implementations support the same language,
       but use different optimizations, implementation techniques,
@@ -252,10 +252,57 @@ layout: default
             <li>runs on Node.js and in browsers</li>
           </ul>
       </li>
-  
+    </ul>
   </div>
 </div>
   
+<div class="content-section details-list">
+  <div class="wrap">
+  
+    <h1 id="off-spring">SOM-based Language Implementations</h1>
+
+    <p>
+      SOM has been a platform for research that inspired a range of language implementations.
+    </p>
+
+    <ul class="som-impl">
+      <li class="som-impl">
+        <h4><a href="https://github.com/smarr/SOMns">SOM<sub class="ns">NS</sub></a></h4>
+        <ul>
+          <li>implementation of <a href="http://newspeaklanguage.org/">Newspeak</a></li>
+          <li>based on TruffleSOM</li>
+          <li>platform for research on concurrency and tooling</li>
+        </ul>
+      </li>
+
+      <li class="som-impl">
+        <h4><a href="https://github.com/gracelang/Moth">Moth</a></h4>
+        <ul>
+          <li>implementation of <a href="http://gracelang.org">Grace</a></li>
+          <li>based on SOM<sub class="ns">NS</sub></li>
+          <li>platform for research on concurrency and tooling</li>
+        </ul>
+      </li>
+
+      <li class="som-impl">
+        <h4><a href="https://github.com/charig/TruffleMATE">TruffleMATE</a></h4>
+        <ul>
+          <li>An extension of TruffleSOM with more standard Smalltalk support</li>
+          <li>platform for research on metaobject protocols and the Mate approach</li>
+        </ul>
+      </li>
+
+      <li class="som-impl">
+        <h4><a href="https://github.com/charig/RTruffleMate">TruffleMATE</a></h4>
+        <ul>
+          <li>An extension of RTruffleSOM with more standard Smalltalk support</li>
+          <li>platform for research on metaobject protocols and the Mate approach</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="content-section">
 <div class="wrap">
 <h1 id="community">Community</h1>
