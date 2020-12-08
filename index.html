@@ -55,9 +55,9 @@ layout: default
 <div id="repl">
   <h1>JsSOM Read-Eval-Print Loop</h1>
   <figure>
-  <code id="repl-out">SOM Shell.
+  <code id="repl-out" class="stretch">SOM Shell.
 </code>
-  <div class="repl-input">---&gt; <textarea id="repl-in" row="1" autofocus oninput="handleReplInput(event)">1 to: 5 do: [:i | i println. ]</textarea></div>
+  <div class="repl-input stretch">---&gt; <textarea id="repl-in" row="1" autofocus oninput="handleReplInput(event)">1 to: 5 do: [:i | i println. ]</textarea></div>
   <figcaption>Note, this REPL does accepts only simple expressions and does
         not allow to define classes or methods.<br/>However, the
         complete <a href="https://github.com/SOM-st/SOM/tree/master/Smalltalk">standard library <span class="icon github">
@@ -115,10 +115,10 @@ layout: default
   </li>
 
   <li class="som-impl">
-    <img src="images/pypy-logo.svg" class="lang-logo" alt="PyPy logo" />
+    <img src="images/rust-logo.svg" class="lang-logo" alt="Rust logo" />
     <ul>
-      <li><a href="https://github.com/SOM-st/RPySOM">RPySOM</a></li>
-      <li><a href="https://github.com/SOM-st/RTruffleSOM">RTruffleSOM</a></li></ul>
+      <li><a href="https://github.com/Hirevo/som-rs">SOM-RS</a></li>
+      <li><a href="https://github.com/softdevteam/yksom/">ykSOM</a></li></ul>
   </li>
 
   <li class="som-impl">
@@ -137,14 +137,15 @@ layout: default
     <li>clarity of implementation over absolute performance</li>
     <li>support for common language features such as objects, classes, closures, and non-local returns</li>
     <li>support for benchmarks: DeltaBlue, Richards, ..., and the <a href="https://github.com/smarr/are-we-fast-yet">Are We Fast Yet benchmarks</a></li>
+    <li>implementations ranging from 2.5k LOC to 8k LOC</li>
     <li>implementation variations include:
         <ul>
           <li>abstract-syntax-tree-based or bytecode-based</li>
           <li>classic interpreter optimizations</li>
           <li>green and native threading</li>
           <li>reference counting, mark/sweep, and generational garbage collectors</li>
+          <li>using metatracing or partial evaluation for just-in-time compilation</li>
         </ul></li>
-    <li>implementations ranging from 2.5k LOC to 8k LOC</li>
 
   </ul>
 </div></div>
@@ -215,16 +216,9 @@ layout: default
       <li class="som-impl">
           <h4><a href="https://github.com/SOM-st/PySOM">PySOM</a></h4>
           <ul>
-            <li>bytecode-based, in Python</li>
-            <li>no optimizations</li>
-          </ul>
-      </li>
-
-      <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/RPySOM">RPySOM</a></h4>
-          <ul>
-            <li>bytecode-based, in Python and RPython-compatible</li>
-            <li>highly optimized</li>
+            <li>abstract-syntax-tree or bytecode-based, in Python</li>
+            <li>RPython-compatible, and with metatracing-based just-in-time compilation</li>
+            <li>or as pure Python, no dependencies</li>
           </ul>
       </li>
 
@@ -238,19 +232,29 @@ layout: default
       </li>
 
       <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/RTruffleSOM">RTruffleSOM</a></h4>
-          <ul>
-            <li>abstract-syntax-tree-based, in Python and RPython-compatible</li>
-            <li>highly optimized</li>
-          </ul>
+        <h4><a href="https://github.com/SOM-st/JsSOM">SOM-RS</a></h4>
+        <ul>
+          <li>abstract-syntax-tree-based or bytecode-based, in Rust</li>
+          <li>some optimizations, very similar to other SOM implementations</li>
+        </ul>
       </li>
 
       <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/JsSOM">JsSOM</a></h4>
-          <ul>
-            <li>abstract-syntax-tree-based, in JavaScript</li>
-            <li>runs on Node.js and in browsers</li>
-          </ul>
+        <h4><a href="https://github.com/softdevteam/yksom/">ykSOM</a></h4>
+        <ul>
+          <li>a bytecode-like interpreter, in Rust</li>
+          <li>an "clean room" implementation</li>
+          <li>focusing on idiomatic Rust, and fast interpretation</li>
+        </ul>
+      </li>
+
+
+      <li class="som-impl">
+        <h4><a href="https://github.com/SOM-st/JsSOM">JsSOM</a></h4>
+        <ul>
+          <li>abstract-syntax-tree-based, in JavaScript</li>
+          <li>runs on Node.js and in browsers</li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -385,7 +389,8 @@ Follow us on Twitter
 
 Discuss with us on the <a href="https://groups.google.com/forum/#!forum/som-dev">som-dev</a> mailing list,<br/><br/>
 
-or chat with us on Gitter: <a href="https://gitter.im/SOM-st/Lobby"><img style="margin-bottom: -5px;" src="//badges.gitter.im/org.png"></a>
+or <a href="http://som-st.slack.com/">chat with us on Slack</a><br/>
+(you may need to request an invited via <a href="https://twitter.com/SOM_VMs">twitter.com/SOM_VMs</a>).
 
 </p>
 
