@@ -15,9 +15,27 @@ layout: default
 <div class="content-section">
   <script>
   function loadAndShowRepl() {
-    var element = document.createElement("script");
-    element.src = "som-repl.min.js";
-    document.body.appendChild(element);
+    const scriptElem = document.createElement("script");
+    scriptElem.setAttribute("type", "module");
+    const src = `
+import { setOutHandler } from "./jssom/lib/platform.js";
+
+setOutHandler(function(msg) {
+  document.getElementById("repl-out").innerHTML += msg;
+});
+
+import { handleReplInput, moveCaretToEnd } from "./jssom/web-repl.js";
+
+document.handleReplInput = handleReplInput;
+
+moveCaretToEnd(document.getElementById("repl-in"));
+
+document.getElementById("example-div").style.display = "none";
+document.getElementById("repl").style.display = "block";
+`;
+    const srcElem = document.createTextNode(src);
+    scriptElem.appendChild(srcElem);
+    document.body.appendChild(scriptElem);
   }
   </script>
   <div class="wrap">
