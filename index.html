@@ -11,13 +11,12 @@ layout: default
 </div>
 </div>
 
-
 <div class="content-section">
   <script>
-  function loadAndShowRepl() {
-    const scriptElem = document.createElement("script");
-    scriptElem.setAttribute("type", "module");
-    const src = `
+    function loadAndShowRepl() {
+      const scriptElem = document.createElement("script");
+      scriptElem.setAttribute("type", "module");
+      const src = `
 import { setOutHandler } from "./jssom/lib/platform.js";
 
 setOutHandler(function(msg) {
@@ -33,10 +32,10 @@ moveCaretToEnd(document.getElementById("repl-in"));
 document.getElementById("example-div").style.display = "none";
 document.getElementById("repl").style.display = "block";
 `;
-    const srcElem = document.createTextNode(src);
-    scriptElem.appendChild(srcElem);
-    document.body.appendChild(scriptElem);
-  }
+      const srcElem = document.createTextNode(src);
+      scriptElem.appendChild(srcElem);
+      document.body.appendChild(scriptElem);
+    }
   </script>
   <div class="wrap">
     <div id="example-div">
@@ -146,48 +145,66 @@ document.getElementById("repl").style.display = "block";
 </ul></div></div>
 
 <div class="content-section">
-<div class="wrap">
+  <div class="wrap">
+    <h1 id="characteristics">Key Characteristics</h1>
 
-  <h1 id="characteristics">Key Characteristics</h1>
-
-  <ul class="two-col">
-    <li>9 main implementations</li>
-    <li>clarity of implementation over absolute performance</li>
-    <li>support for common language features such as objects, classes, closures, and non-local returns</li>
-    <li>support for benchmarks: DeltaBlue, Richards, ..., and the <a href="https://github.com/smarr/are-we-fast-yet">Are We Fast Yet benchmarks</a></li>
-    <li>implementations ranging from 2.5k LOC to 8k LOC</li>
-    <li>implementation variations include:
+    <ul class="two-col">
+      <li>9 main implementations</li>
+      <li>clarity of implementation over absolute performance</li>
+      <li>
+        support for common language features such as objects, classes, closures,
+        and non-local returns
+      </li>
+      <li>
+        support for benchmarks: DeltaBlue, Richards, ..., and the
+        <a href="https://github.com/smarr/are-we-fast-yet"
+          >Are We Fast Yet benchmarks</a
+        >
+      </li>
+      <li>implementations ranging from 2.5k LOC to 8k LOC</li>
+      <li>
+        implementation variations include:
         <ul>
           <li>abstract-syntax-tree-based or bytecode-based</li>
           <li>classic interpreter optimizations</li>
           <li>green and native threading</li>
-          <li>reference counting, mark/sweep, and generational garbage collectors</li>
-          <li>using metatracing or partial evaluation for just-in-time compilation</li>
-        </ul></li>
-
-  </ul>
-</div></div>
+          <li>
+            reference counting, mark/sweep, and generational garbage collectors
+          </li>
+          <li>
+            using metatracing or partial evaluation for just-in-time compilation
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <div class="content-section">
-<div class="wrap">
-
-  <h1 id="performance">Performance</h1>
-  <figure style="text-align:center">
-    <img src="images/som-box-overview.svg" alt="Boxplot, performance comparison of SOM implementations." />
-    <figcaption>Performance of some of the SOM implementations compared to Java.<br/>
-      Based on data from March 2019, using the <a href="https://github.com/smarr/are-we-fast-yet#readme">Are We Fast Yet benchmarks</a>.</figcaption>
-  </figure>
-
-</div></div>
+  <div class="wrap">
+    <h1 id="performance">Performance</h1>
+    <figure style="text-align: center">
+      <img
+        src="images/som-box-overview.svg"
+        alt="Boxplot, performance comparison of SOM implementations."
+      />
+      <figcaption>
+        Performance of some of the SOM implementations compared to Java.<br />
+        Based on data from March 2019, using the
+        <a href="https://github.com/smarr/are-we-fast-yet#readme"
+          >Are We Fast Yet benchmarks</a
+        >.
+      </figcaption>
+    </figure>
+  </div>
+</div>
 
 <div class="content-section details-list">
   <div class="wrap">
-  
     <h1 id="som-details">SOM Implementations Overview</h1>
     <p>
-      The various implementations support the same language,
-      but use different optimizations, implementation techniques,
-      and run on different platforms.
+      The various implementations support the same language, but use different
+      optimizations, implementation techniques, and run on different platforms.
     </p>
 
     <ul class="som-impl">
@@ -201,52 +218,55 @@ document.getElementById("repl").style.display = "block";
       </li>
 
       <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/AweSOM">AweSOM</a></h4>
-          <ul>
-            <li>bytecode-based</li>
-            <li>implemented in Smalltalk</li>
-            <li>no optimizations</li>
-          </ul>
-      </li>
-
-      <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/CSOM">CSOM</a></h4>
-          <ul>
-            <li>first port to other language, C</li>
-            <li>bytecode-based</li>
-            <li>no optimizations</li>
-            <li>mark/sweep garbage collector</li>
-            <li>supports Emscripten/WebAssembler</li>
+        <h4><a href="https://github.com/SOM-st/AweSOM">AweSOM</a></h4>
+        <ul>
+          <li>bytecode-based</li>
+          <li>implemented in Smalltalk</li>
+          <li>no optimizations</li>
         </ul>
       </li>
 
       <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/SOMpp">SOM++</a></h4>
-          <ul>
-            <li>bytecode-based, with jump bytecodes</li>
-            <li>implemented in C++</li>
-            <li>tagged integers</li>
-            <li>mark/sweep, copying, and generational garbage collectors</li>
-            <li>With OMR: GC support and a just-in-time compiler</li>
-          </ul>
+        <h4><a href="https://github.com/SOM-st/CSOM">CSOM</a></h4>
+        <ul>
+          <li>first port to other language, C</li>
+          <li>bytecode-based</li>
+          <li>no optimizations</li>
+          <li>mark/sweep garbage collector</li>
+          <li>supports Emscripten/WebAssembler</li>
+        </ul>
       </li>
 
       <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/PySOM">PySOM</a></h4>
-          <ul>
-            <li>abstract-syntax-tree or bytecode-based, in Python</li>
-            <li>RPython-compatible, and with metatracing-based just-in-time compilation</li>
-            <li>or as pure Python, no dependencies</li>
-          </ul>
+        <h4><a href="https://github.com/SOM-st/SOMpp">SOM++</a></h4>
+        <ul>
+          <li>bytecode-based, with jump bytecodes</li>
+          <li>implemented in C++</li>
+          <li>tagged integers</li>
+          <li>mark/sweep, copying, and generational garbage collectors</li>
+          <li>With OMR: GC support and a just-in-time compiler</li>
+        </ul>
       </li>
 
       <li class="som-impl">
-          <h4><a href="https://github.com/SOM-st/TruffleSOM">TruffleSOM</a></h4>
-          <ul>
-            <li>implemented in Java, using the Truffle framework</li>
-            <li>abstract-syntax-tree-based</li>
-            <li>highly optimized</li>
-          </ul>
+        <h4><a href="https://github.com/SOM-st/PySOM">PySOM</a></h4>
+        <ul>
+          <li>abstract-syntax-tree or bytecode-based, in Python</li>
+          <li>
+            RPython-compatible, and with metatracing-based just-in-time
+            compilation
+          </li>
+          <li>or as pure Python, no dependencies</li>
+        </ul>
+      </li>
+
+      <li class="som-impl">
+        <h4><a href="https://github.com/SOM-st/TruffleSOM">TruffleSOM</a></h4>
+        <ul>
+          <li>implemented in Java, using the Truffle framework</li>
+          <li>abstract-syntax-tree-based</li>
+          <li>highly optimized</li>
+        </ul>
       </li>
 
       <li class="som-impl">
@@ -266,7 +286,6 @@ document.getElementById("repl").style.display = "block";
         </ul>
       </li>
 
-
       <li class="som-impl">
         <h4><a href="https://github.com/SOM-st/JsSOM">JsSOM</a></h4>
         <ul>
@@ -280,18 +299,25 @@ document.getElementById("repl").style.display = "block";
 
 <div class="content-section details-list">
   <div class="wrap">
-  
     <h1 id="offspring">SOM-based Language Implementations</h1>
 
     <p>
-      SOM has been a platform for research that inspired a range of language implementations.
+      SOM has been a platform for research that inspired a range of language
+      implementations.
     </p>
 
     <ul class="som-impl">
       <li class="som-impl">
-        <h4><a href="https://github.com/smarr/SOMns">SOM<sub class="ns">NS</sub></a></h4>
+        <h4>
+          <a href="https://github.com/smarr/SOMns"
+            >SOM<sub class="ns">NS</sub></a
+          >
+        </h4>
         <ul>
-          <li>implementation of <a href="http://newspeaklanguage.org/">Newspeak</a></li>
+          <li>
+            implementation of
+            <a href="https://newspeaklanguage.org/">Newspeak</a>
+          </li>
           <li>based on TruffleSOM</li>
           <li>platform for research on concurrency and tooling</li>
         </ul>
@@ -300,7 +326,7 @@ document.getElementById("repl").style.display = "block";
       <li class="som-impl">
         <h4><a href="https://github.com/gracelang/Moth">Moth</a></h4>
         <ul>
-          <li>implementation of <a href="http://gracelang.org">Grace</a></li>
+          <li>implementation of <a href="https://gracelang.org">Grace</a></li>
           <li>based on SOM<sub class="ns">NS</sub></li>
           <li>platform for research on concurrency and tooling</li>
         </ul>
@@ -309,413 +335,660 @@ document.getElementById("repl").style.display = "block";
       <li class="som-impl">
         <h4><a href="https://github.com/charig/TruffleMATE">TruffleMATE</a></h4>
         <ul>
-          <li>An extension of TruffleSOM with more standard Smalltalk support</li>
-          <li>platform for research on metaobject protocols and the Mate approach</li>
+          <li>
+            An extension of TruffleSOM with more standard Smalltalk support
+          </li>
+          <li>
+            platform for research on metaobject protocols and the Mate approach
+          </li>
         </ul>
       </li>
 
       <li class="som-impl">
-        <h4><a href="https://github.com/charig/RTruffleMate">TruffleMATE</a></h4>
+        <h4>
+          <a href="https://github.com/charig/RTruffleMate">TruffleMATE</a>
+        </h4>
         <ul>
-          <li>An extension of RTruffleSOM with more standard Smalltalk support</li>
-          <li>platform for research on metaobject protocols and the Mate approach</li>
+          <li>
+            An extension of RTruffleSOM with more standard Smalltalk support
+          </li>
+          <li>
+            platform for research on metaobject protocols and the Mate approach
+          </li>
         </ul>
       </li>
     </ul>
   </div>
 </div>
 
-
 <div class="content-section">
-<div class="wrap">
-    
-  <h1 id="presentation">Intro Presentation 2019</h1>
+  <div class="wrap">
+    <h1 id="presentation">Intro Presentation 2019</h1>
 
-  <figure style="text-align:center">
-    <script>
-      function showSlides() {
-        document.getElementById('presentation-play').style.display = 'none';
-        document.getElementById('presentation-slides').style.display = 'inline-block';
+    <figure style="text-align: center">
+      <script>
+        function showSlides() {
+          document.getElementById("presentation-play").style.display = "none";
+          document.getElementById("presentation-slides").style.display =
+            "inline-block";
 
-        document.getElementById('presentation-slides').innerHTML = `<iframe src="https://onedrive.live.com/embed?cid=30DA3B1EAD53408B&resid=30DA3B1EAD53408B%21247&authkey=ABqBV0RayZwsaPg&em=2" width="402" height="327" frameborder="0" scrolling="no"></iframe>`;
-      }
-    </script>
-    <div style="position: relative; text-align: center;" id="presentation-play">
+          document.getElementById(
+            "presentation-slides"
+          ).innerHTML = `<iframe src="https://onedrive.live.com/embed?cid=30DA3B1EAD53408B&resid=30DA3B1EAD53408B%21247&authkey=ABqBV0RayZwsaPg&em=2" width="402" height="327" frameborder="0" scrolling="no"></iframe>`;
+        }
+      </script>
+      <div
+        style="position: relative; text-align: center"
+        id="presentation-play"
+      >
         <a href="javascript:showSlides()">
-          <img src="images/som-2019.png" width="402" height="327" style="border: 1px solid #ccc;" />
-          <div style="position: absolute; top: 270px; left: 50%; transform: translate(-50%, -50%); font-size: 100px;">▶️</div>
+          <img
+            src="images/som-2019.png"
+            width="402"
+            height="327"
+            style="border: 1px solid #ccc"
+          />
+          <div
+            style="
+              position: absolute;
+              top: 270px;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 100px;
+            "
+          >
+            ▶️
+          </div>
         </a>
-    </div>
-    <div id="presentation-slides" style="display: none;"></div>
-    
-    <figcaption>Overview of the SOM project and what it brings for teaching and research.</figcaption>
-  </figure>
-</div>
-</div>
+      </div>
+      <div id="presentation-slides" style="display: none"></div>
 
+      <figcaption>
+        Overview of the SOM project and what it brings for teaching and
+        research.
+      </figcaption>
+    </figure>
+  </div>
+</div>
 
 <div class="content-section">
-<div class="wrap">
-    
-  <h1 id="teaching">Teaching Material</h1>
+  <div class="wrap">
+    <h1 id="teaching">Teaching Material</h1>
 
-  <p style="margin: 1em auto; width: 60%;">Currently, we do not have much teaching material specific to SOM.
-     We do have however an number of related slide sets, some somewhat historical,
-     that give a basic overview. Other material is more specific,
-     but can also be starting point.</p>
-  <ul style="margin: 0 auto; width: 60%;">
-    <li>Design and Implementation of Object-Oriented Virtual Machines.<br/>
-        University of Aarhus 2001/2002<br/>
-        <a href="https://web.archive.org/web/20080305035237/http://www.daimi.au.dk/~ups/OOVM/">Course material</a>, <a href="https://web.archive.org/web/20061221205632/http://www.daimi.au.dk/~ups/OOVM/slides/14-2-2002.pdf">SOM intro</a>, <a href="https://web.archive.org/web/20061221211047/http://www.daimi.au.dk/~ups/OOVM/slides/smalltalk-ultra-quick-intro.pdf">SOM examples</a>
-</li>
-    <li>Building Self-Optimizing Interpreters with Truffle or RPython.<br/>
-        A Hands-On Tutorial.<br/>
-        Stefan Marr<br/>
+    <p style="margin: 1em auto; width: 60%">
+      Currently, we do not have much teaching material specific to SOM. We do
+      have however an number of related slide sets, some somewhat historical,
+      that give a basic overview. Other material is more specific, but can also
+      be starting point.
+    </p>
+    <ul style="margin: 0 auto; width: 60%">
+      <li>
+        Design and Implementation of Object-Oriented Virtual Machines.<br />
+        University of Aarhus 2001/2002<br />
+        <a
+          href="https://web.archive.org/web/20080305035237/http://www.daimi.au.dk/~ups/OOVM/"
+          >Course material</a
+        >,
+        <a
+          href="https://web.archive.org/web/20061221205632/http://www.daimi.au.dk/~ups/OOVM/slides/14-2-2002.pdf"
+          >SOM intro</a
+        >,
+        <a
+          href="https://web.archive.org/web/20061221211047/http://www.daimi.au.dk/~ups/OOVM/slides/smalltalk-ultra-quick-intro.pdf"
+          >SOM examples</a
+        >
+      </li>
+      <li>
+        Building Self-Optimizing Interpreters with Truffle or RPython.<br />
+        A Hands-On Tutorial.<br />
+        Stefan Marr<br />
         <a href="https://stefan-marr.de/downloads/truffle/tutorial/">Slides</a>
       </li>
       <li>
-        UCB CS294-113: Virtual Machines and Managed Runtimes<br/>
-        Mario Wolczko<br/>
-        <a href="http://www.wolczko.com/CS294/">Course material</a> 
+        UCB CS294-113: Virtual Machines and Managed Runtimes<br />
+        Mario Wolczko<br />
+        <a href="https://www.wolczko.com/CS294/">Course material</a>
       </li>
-  </ul>
+    </ul>
+  </div>
 </div>
-</div>
-
 
 <div class="content-section">
-<div class="wrap">
-<h1 id="community">Community</h1>
+  <div class="wrap">
+    <h1 id="community">Community</h1>
 
-<p style="text-align:center">
-<br/>
-For questions, discussions, and updates, you can:<br/><br/>
+    <p style="text-align: center">
+      <br />
+      For questions, discussions, and updates, you can:<br /><br />
 
-Check all code on <a href="https://github.com/SOM-st/">GitHub</a><br/><br/>
+      Check all code on <a href="https://github.com/SOM-st/">GitHub</a
+      ><br /><br />
 
-Follow us on Twitter
+      Follow us on Twitter
 
-<a style="position: relative;
-    height: 20px;
-    box-sizing: border-box;
-    padding: 1px 8px 1px 6px;
-    background-color: #1b95e0;
-    color: #fff;
-    border-radius: 3px;
-    font-weight: 500;
-    cursor: pointer;" href="https://twitter.com/SOM_VMs">
-<i style="    position: relative;
-    top: 2px;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background: transparent 0 0 no-repeat;
-    background-image:  url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h72v72H0z%22%2F%3E%3Cpath%20class%3D%22icon%22%20fill%3D%22%23fff%22%20d%3D%22M68.812%2015.14c-2.348%201.04-4.87%201.744-7.52%202.06%202.704-1.62%204.78-4.186%205.757-7.243-2.53%201.5-5.33%202.592-8.314%203.176C56.35%2010.59%2052.948%209%2049.182%209c-7.23%200-13.092%205.86-13.092%2013.093%200%201.026.118%202.02.338%202.98C25.543%2024.527%2015.9%2019.318%209.44%2011.396c-1.125%201.936-1.77%204.184-1.77%206.58%200%204.543%202.312%208.552%205.824%2010.9-2.146-.07-4.165-.658-5.93-1.64-.002.056-.002.11-.002.163%200%206.345%204.513%2011.638%2010.504%2012.84-1.1.298-2.256.457-3.45.457-.845%200-1.666-.078-2.464-.23%201.667%205.2%206.5%208.985%2012.23%209.09-4.482%203.51-10.13%205.605-16.26%205.605-1.055%200-2.096-.06-3.122-.184%205.794%203.717%2012.676%205.882%2020.067%205.882%2024.083%200%2037.25-19.95%2037.25-37.25%200-.565-.013-1.133-.038-1.693%202.558-1.847%204.778-4.15%206.532-6.774z%22%2F%3E%3C%2Fsvg%3E)"></i><span style="margin-left: 3px;
-    white-space: nowrap;"> @SOM_VMs</span></a><br/><br/>
+      <a
+        style="
+          position: relative;
+          height: 20px;
+          box-sizing: border-box;
+          padding: 1px 8px 1px 6px;
+          background-color: #1b95e0;
+          color: #fff;
+          border-radius: 3px;
+          font-weight: 500;
+          cursor: pointer;
+        "
+        href="https://twitter.com/SOM_VMs"
+      >
+        <i
+          style="
+            position: relative;
+            top: 2px;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background: transparent 0 0 no-repeat;
+            background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h72v72H0z%22%2F%3E%3Cpath%20class%3D%22icon%22%20fill%3D%22%23fff%22%20d%3D%22M68.812%2015.14c-2.348%201.04-4.87%201.744-7.52%202.06%202.704-1.62%204.78-4.186%205.757-7.243-2.53%201.5-5.33%202.592-8.314%203.176C56.35%2010.59%2052.948%209%2049.182%209c-7.23%200-13.092%205.86-13.092%2013.093%200%201.026.118%202.02.338%202.98C25.543%2024.527%2015.9%2019.318%209.44%2011.396c-1.125%201.936-1.77%204.184-1.77%206.58%200%204.543%202.312%208.552%205.824%2010.9-2.146-.07-4.165-.658-5.93-1.64-.002.056-.002.11-.002.163%200%206.345%204.513%2011.638%2010.504%2012.84-1.1.298-2.256.457-3.45.457-.845%200-1.666-.078-2.464-.23%201.667%205.2%206.5%208.985%2012.23%209.09-4.482%203.51-10.13%205.605-16.26%205.605-1.055%200-2.096-.06-3.122-.184%205.794%203.717%2012.676%205.882%2020.067%205.882%2024.083%200%2037.25-19.95%2037.25-37.25%200-.565-.013-1.133-.038-1.693%202.558-1.847%204.778-4.15%206.532-6.774z%22%2F%3E%3C%2Fsvg%3E);
+          "
+        ></i
+        ><span style="margin-left: 3px; white-space: nowrap"> @SOM_VMs</span></a
+      ><br /><br />
 
-Discuss with us on the <a href="https://groups.google.com/forum/#!forum/som-dev">som-dev</a> mailing list,<br/><br/>
+      Discuss with us on the
+      <a href="https://groups.google.com/g/som-dev">som-dev</a>
+      mailing list,<br /><br />
 
-or <a href="http://som-st.slack.com/">chat with us on Slack</a><br/>
-(you may need to request an invited via <a href="https://twitter.com/SOM_VMs">twitter.com/SOM_VMs</a>).
-
-</p>
-
-</div></div>
-
-
-<div class="content-section">
-<div class="wrap">
-
-  <h1 id="history">Use in Teaching and Research: A Brief Chronology</h1>
-  <p style="text-align:center;">A brief and incomplete list of papers and universities where SOM has been used in the past.</p>
-
-<div class="history">
-  <div>
-    <img style="width:130px" src="images/fit-cvut-logo-en.svg" alt="Faculty of Information Technology Czech Technical University in Prague logo" />
-    <p>
-      In 2023, Filip Říha implemented <a href="https://github.com/rihafilip/HaSOM">HaSOM</a>, a SOM written in Haskell as part of
-      his <a href="https://dspace.cvut.cz/bitstream/handle/10467/109352/F8-BP-2023-Riha-Filip-thesis.pdf">Bachelor's thesis</a>.
+      or <a href="https://som-st.slack.com/">chat with us on Slack</a><br />
+      (you may need to request an invited via
+      <a href="https://twitter.com/SOM_VMs">twitter.com/SOM_VMs</a>).
     </p>
   </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-         Efficient and Deterministic Record & Replay for Actor Languages<br/>
-         D. Aumayr, S. Marr, C. Béra, E. Gonzalez Boix, H. Mössenböck<br/>
-         Proceedings of the 15th International Conference on Managed Languages and Runtimes, ManLang'18, ACM, 2018,
-         doi: <a href="https://doi.org/10.1145/3237009.3237015">10.1145/3237009.3237015</a>,
-         <a href="https://stefan-marr.de/downloads/manlang18-aumayr-et-al-efficient-and-deterministic-record-and-replay-for-actor-languages.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-         Few Versatile vs. Many Specialized Collections: How to design a collection library for exploratory programming?<br/>
-         S. Marr, B. Daloze<br/>
-         Proceedings of Programming Experience Workshop, PX/18, 2018,
-         doi: <a href="https://doi.org/10.1145/3191697.3214334">10.1145/3191697.3214334</a>,
-         <a href="https://stefan-marr.de/papers/px-marr-daloze-few-versatile-vs-many-specialized-collections/">HTML</a>,
-         <a href="https://stefan-marr.de/downloads/px18-marr-daloze-few-versatile-vs-many-specialized-collections.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-         Fully Reflective Execution Environments: Virtual Machines for More Flexible Software<br/>
-         G. Chari, D. Garbervetsky, S. Marr, S. Ducasse<br/>
-         IEEE Transactions on Software Engineering, IEEE TSE, 2018,
-         doi: <a href="https://doi.org/10.1109/TSE.2018.2812715">10.1109/TSE.2018.2812715</a>,
-         <a href="https://stefan-marr.de/downloads/tse18-chari-et-al-fully-reflective-execution-environments.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-         A Concurrency-Agnostic Protocol for Multi-Paradigm Concurrent Debugging Tools<br/>
-         S. Marr, C. Torres Lopez, D. Aumayr, E. Gonzalez Boix, H. Mössenböck<br/>
-         Proceedings of the 13th ACM SIGPLAN International Symposium on Dynamic Languages, DLS'17, ACM, 2017,
-         doi: <a href="https://doi.org/10.1145/3133841.3133842">10.1145/3133841.3133842</a>,
-         <a href="https://stefan-marr.de/papers/dls-marr-et-al-concurrency-agnostic-protocol-for-debugging/">HTML</a>,
-         <a href="https://stefan-marr.de/downloads/dls17-marr-et-al-concurrency-agnostic-protocol-for-debugging.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        A Metaobject Protocol for Optimizing Application-Specific Run-Time Variability<br/>
-        G. Chari, D. Garbervetsky, S. Marr<br/>
-        Proceedings of the 11th Workshop on Implementation, Compilation, Optimization of Object-Oriented Languages, Programs and Systems, ICOOOLPS'17. (2017),
-        doi: <a href="https://doi.org/10.1145/3098572.3098577">10.1145/3098572.3098577</a>,
-        <a href="https://stefan-marr.de/downloads/icooolps17-chari-et-al-a-mop-for-optimizing-run-time-variability.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        Toward Virtual Machine Adaption Rather than Reimplementation: Adapting SOM<sub class="ns">NS</sub> for Grace<br/>
-        R. Roberts, S. Marr, M. Homer, J. Noble<br/>
-        Workshop on Modern Language Runtimes, Ecosystems, and VMs, MoreVMs'17. Extended Abstract. (2017),
-        <a href="https://stefan-marr.de/downloads/morevms17-roberts-et-al-toward-virtual-machine-adaption.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-      <img style="width:130px" src="images/victoria-university-of-wellington_logo.svg" alt="Victoria University of Wellington logo" />
-      <p>
-        In 2017, James Noble started using SOM<sub class="ns">NS</sub> to implement the <a href="http://gracelang.org">Grace</a> language.
-        Richard Roberts turned it into a working implementation called <a href="https://github.com/moth-project/Moth">Moth</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/logo_uba.gif" alt="Facultad de Ciencias Exactas y Naturales - Universidad de Buenos Aires, logo" />
-      <p>
-        <a href="https://github.com/charig/TruffleMATE">TruffleMATE</a>,
-        a SOM variant with the Mate Metaobject protocol, which enables fully
-        reflective execution environments.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        Building Efficient and Highly Run-time Adaptable Virtual Machines.<br/>
-        Chari, Guido; Garbervetsky, Diego; and Marr, Stefan.<br/>
-        Proceedings of the 12th Symposium on Dynamic Languages (2016),
-        <a href="http://lafhis.dc.uba.ar/sites/default/files/papers/buildingEfficientReflectiveVMs.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        Cross-Language Compiler Benchmarking: Are We Fast Yet?<br/>
-        Marr, Stefan; Daloze, Benoit; and Mössenböck, Hanspeter.<br/>
-        Proceedings of the 12th Symposium on Dynamic Languages (2016),
-        <a href="https://stefan-marr.de/downloads/dls16-marr-et-al-cross-language-compiler-benchmarking-are-we-fast-yet.pdf">PDF</a>, <a href="https://stefan-marr.de/papers/dls-marr-et-al-cross-language-compiler-benchmarking-are-we-fast-yet/">HTML</a>.
-      </p>
-  </div>
-
-  <div>
-      <img style="width:100px" src="images/IBM-logo.svg" alt="IBM logo" />
-      <p>
-        In 2016, the J9 team used their new
-        <a href="https://www.youtube.com/watch?v=w5rcBiOHrB0&t=1164">JitBuilder to speed up SOM++ by 3x-4x</a>.
-        JitBuilder is an API for the J9 just-in-time compiler, which is going
-        to be open sourced as part of the
-        <a href="https://github.com/eclipse/omr#readme">Eclipse OMR project</a>.
-      </p>
-  </div>
-
-  <div>
-      <img style="width:100px" src="images/IBM-logo.svg" alt="IBM logo" />
-      <p>
-        In 2015, the J9 team announced the plans to open source the platform
-        underlying their JVM implementation. As part of their JavaOne talk
-        &ldquo;<a href="http://www.slideshare.net/charliegracie1/javaone-whats-in-an-object">What's in an Object? Java Garbage Collection for the Polygot</a>&rdquo;,
-        they used SOM++ as a case study to show how their garbage collector can
-        be integrated into an existing VM.
-      </p>
-  </div>
-
-  <div>
-      <img style="width:100px" src="images/JKU_Logo_kurz_ohne_Wappen_engl.jpg" alt="Johannes Kepler University Linz, logo" />
-      <p>
-        <a href="https://github.com/smarr/SOMns">SOM<sub class="ns">NS</sub></a>,
-        a <a href="http://www.newspeaklanguage.org">Newspeak</a>
-        variant with full support for actor concurrency was developed as a
-        platform for research on the interaction of concurrency models.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        Tracing vs. Partial Evaluation: Comparing Meta-Compilation Approaches for Self-Optimizing Interpreters.<br/>
-        Marr, Stefan; and Ducasse, Stéphane.<br/>
-        Proceedings of the 2015 ACM International Conference on Object Oriented Programming Systems Languages &amp; Applications, ACM, (2015),
-        <a href="https://stefan-marr.de/downloads/oopsla15-marr-ducasse-meta-tracing-vs-partial-evaluation.pdf">PDF</a>, <a href="https://stefan-marr.de/papers/oopsla-marr-ducasse-meta-tracing-vs-partial-evaluation/">HTML</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        Zero-Overhead Metaprogramming: Reflection and Metaobject Protocols Fast and without Compromises.<br/>
-        Marr, Stefan; Seaton, Chris; and Ducasse, Stéphane.<br/>
-        Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation, ACM, (2015), doi: <a href="http://dx.doi.org/10.1145/2737924.2737963">10.1145/2737924.2737963</a>,
-        <a href="https://stefan-marr.de/downloads/pldi15-marr-et-al-zero-overhead-metaprogramming.pdf">PDF</a>, <a href="https://stefan-marr.de/papers/pldi-marr-et-al-zero-overhead-metaprogramming/">HTML</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        Are We There Yet?
-        Simple Language-Implementation Techniques for the 21st Century.<br/>
-        Marr, Stefan; Pape, Tobias; and De Meuter, Wolfgang.<br/>
-        IEEE Software 31, no. 5 (2014): 60-67, doi: <a href="http://dx.doi.org/10.1109%2FMS.2014.98">10.1109/MS.2014.98</a>,
-        <a href="https://stefan-marr.de/downloads/ieee-soft-marr-et-al-are-we-there-yet.pdf">PDF</a>, <a href="https://stefan-marr.de/papers/ieee-soft-marr-et-al-are-we-there-yet/">HTML</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/software-languages-lab-logo.svg" alt="Software Languages Lab, Vrije Universiteit Brussel, logo" />
-      <p>
-        The SOM variants were used for a number of experiments such as ActorSOM,
-        a SOM with a event-loop concurrency model similar to AmbientTalk.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/hhu-dus-logo.svg" alt="Heinrich Heine Universit&auml;t D&uuml;sseldorf, logo" />
-      <p>
-        SOM++ was optimized and extended with a generational garbage collector
-        as part of <a href="http://www.stups.uni-duesseldorf.de/mediawiki/images/2/25/Master_boland.pdf">a master's thesis</a>.
-      </p>
-  </div>
-
-  <div>
-      <img src="images/paper-logo.png" alt="Publication" />
-      <p>
-        CSOM/PL: A Virtual Machine Product Line.<br/>
-        Haupt, Michael; Marr, Stefan and Hirschfeld, Robert.<br/>
-        Journal of Object Technology 10, no. 12 (2011): 1-30, doi: <a href="http://dx.doi.org/10.5381/jot.2011.10.1.a12">10.5381/jot.2011.10.1.a12</a>,
-        <a href="http://www.jot.fm/issues/issue_2011_01/article12.pdf">PDF</a>.
-      </p>
-  </div>
-
-  <div>
-    <img src="images/paper-logo.png" alt="Publication" />
-    <p>
-      Type Harvesting: A Practical Approach to Obtaining Typing Information in Dynamic Programming Languages.<br/>
-      Haupt, Michael; Perscheid, Michael and Hirschfeld, Robert.<br/>
-      Proceedings of the 2011 ACM Symposium on Applied Computing, 2011, doi: <a href="http://dx.doi.org/10.1145/1982185.1982464">10.1145/1982185.1982464</a>,
-      <a href="http://www.hpi.uni-potsdam.de/hirschfeld/publications/media/HauptPerscheidHirschfeld_2011_TypeHarvestingAPracticalApproachToObtainingTypingInformationInDynamicProgrammingLanguages_AcmDL.pdf">URL</a>.
-    </p>
-  </div>
-
-  <div>
-    <img src="images/paper-logo.png" alt="Publication" />
-    <p>
-      Virtual Machine Support for Many-Core Architectures: Decoupling Abstract From Concrete Concurrency Models.<br/>
-      Marr, Stefan; Haupt, Michael; Timbermont, Stijn; Adams, Bram; D'Hondt, Theo; Costanza, Pascal and De Meuter, Wolfgang.<br/>
-      Second International Workshop on Programming Languages Approaches to Concurrency and Communication-cEntric Software, York, UK, 2010,
-      doi: <a href="http://dx.doi.org/10.4204/EPTCS.17.6">10.4204/EPTCS.17.6</a>,
-      <a href="https://www.stefan-marr.de/2010/02/virtual-machine-support-for-many-core-architectures-decoupling-abstract-from-concrete-concurrency-models/">URL</a>.
-    </p>
-  </div>
-
-  <div>
-    <img src="images/paper-logo.png" alt="Publication" />
-    <p>The SOM Family: Virtual Machines for Teaching and Research.<br/>
-      Haupt, Michael; Hirschfeld, Robert; Pape, Tobias; Gabrysiak, Gregor; Marr, Stefan; Bergmann, Arne; Heise, Arvid; Kleine, Matthias and Krahn, Robert.
-      Proceedings of the 15th Annual Conference on Innovation and Technology in Computer Science Education (ITiCSE), 2010,
-      doi: <a href="http://dx.doi.org/10.1145/1822090.1822098">10.1145/1822090.1822098</a>,
-      <a href="http://www.hpi.uni-potsdam.de/hirschfeld/publications/media/HauptHirschfeldPapeGabrysiakMarrBergmannHeiseKleineKrahn_2010_TheSomFamily_AcmDL.pdf">PDF</a>.
-    </p>
-  </div>
-
-  <div>
-    <img src="images/tu-darmstadt-logo.svg" alt="Technische Universit&auml;t Darmstadt, logo" />
-    <p>In 2010, SOM was used by Michael Haupt to teach one graduate course at Technische Universit&auml;t Darmstadt (Germany).</p>
-  </div>
-
-  <div>
-    <img src="images/paper-logo.png"  alt="Publication" />
-    <p>NXTalk: Dynamic Object-oriented Programming in a Constrained Environment.<br/>
-      Beck, Martin; Haupt, Michael and Hirschfeld, Robert.
-      Proceedings of the International Workshop on Smalltalk Technologies, 2009,
-      doi: <a href="http://dx.doi.org/10.1145/1735935.1735942">10.1145/1735935.1735942</a>,
-      <a href="http://haupz.de/d/p/IWST2009a.pdf">PDF</a>.
-    </p>
-  </div>
-
-  <div>
-    <img src="images/hpi_logo_kl.jpg"  alt="Hasso Plattner Institute, logo" />
-    <p>SOM was used by Michael Haupt between 2007&ndash;2009 to teach a course on
-       Virtual Machines at the Hasso Plattner Institute in Potsdam.
-       Many of the feature variants of CSOM for instance support for Smalltalk images, threads, and
-       garbage collection have been developed as part of course work. <a href="http://www.hpi.uni-potsdam.de/hirschfeld/projects/som/">(more)</a>
-    </p>
-  </div>
-
-  <div>
-    <img src="images/lancaster-university-logo.svg" alt="Lancaster University logo" />
-    <p>In 2006, SOM was used by Michael Haupt to teach one undergraduate course at Lancaster University (UK).</p>
-  </div>
-
-  <div>
-    <img src="images/paper-logo.png" alt="Publication" />
-    <p>Related to SOM, at least in syntax and spirit:<br/>
-      Design, implementation, and evaluation of the <em>Resilient Smalltalk</em> embedded platform.<br/>
-      Andersen, Jakob R.; Bak, Lars; Grarup, Steffen; Lund, Kasper V.; Eskildsen, Toke; Hansen, Klaus Marius and Torgersen, Mads.<br/>
-      Computer Languages, Systems &amp; Structures 31, no. 3&ndash;4 (2005): 127&ndash;141, doi: <a href="http://dx.doi.org/10.1016/j.cl.2005.02.003">10.1016/j.cl.2005.02.003</a>, <a href="http://esug.org/data/ESUG2004/Workshop/resilient-esug2004.pdf">PDF</a>.
-    </p>
-  </div>
-
-  <div>
-    <img src="images/aarhus-university-logo.jpg" alt="Aarhus University (logo)" />
-    <p>A kind of successor of SOM: OOVM, which went on to become <em>Resilient Smalltalk</em><br/>
-      <a href="https://verdich.dk/kasper/thesis.html">Revolutionizing Embedded Software</a><br/>
-      Master's Thesis by Kasper Verdich Lund and Jakob Roland Andersen<br/>
-    </p>
-   </div>
-
-  <div>
-    <img src="images/aarhus-university-logo.jpg" alt="Aarhus University (logo)" />
-    <p>SOM was originally implemented at the University of &Aring;rhus in
-       Denmark by Jakob Roland Andersen, Kasper Verdich Lund, Lars Bak,
-       Mads Torgersen, and Ulrik Pagh Schultz in 2001/2002. It was used for
-       teaching object-oriented VMs and came with the original version of the
-       SOM Smalltalk libraries, test suites, and benchmarks.</p>
-   </div>
 </div>
 
-</div></div>
+<div class="content-section">
+  <div class="wrap">
+    <h1 id="history">Use in Teaching and Research: A Brief Chronology</h1>
+    <p style="text-align: center">
+      A brief and incomplete list of papers and universities where SOM has been
+      used in the past.
+    </p>
+
+    <div class="history">
+      <div>
+        <img
+          style="width: 130px"
+          src="images/fit-cvut-logo-en.svg"
+          alt="Faculty of Information Technology Czech Technical University in Prague logo"
+        />
+        <p>
+          In 2023, Filip Říha implemented
+          <a href="https://github.com/rihafilip/HaSOM">HaSOM</a>, a SOM written
+          in Haskell as part of his
+          <a
+            href="https://dspace.cvut.cz/bitstream/handle/10467/109352/F8-BP-2023-Riha-Filip-thesis.pdf"
+            >Bachelor's thesis</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Efficient and Deterministic Record & Replay for Actor Languages<br />
+          D. Aumayr, S. Marr, C. Béra, E. Gonzalez Boix, H. Mössenböck<br />
+          Proceedings of the 15th International Conference on Managed Languages
+          and Runtimes, ManLang'18, ACM, 2018, doi:
+          <a href="https://doi.org/10.1145/3237009.3237015"
+            >10.1145/3237009.3237015</a
+          >,
+          <a
+            href="https://stefan-marr.de/downloads/manlang18-aumayr-et-al-efficient-and-deterministic-record-and-replay-for-actor-languages.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Few Versatile vs. Many Specialized Collections: How to design a
+          collection library for exploratory programming?<br />
+          S. Marr, B. Daloze<br />
+          Proceedings of Programming Experience Workshop, PX/18, 2018, doi:
+          <a href="https://doi.org/10.1145/3191697.3214334"
+            >10.1145/3191697.3214334</a
+          >,
+          <a
+            href="https://stefan-marr.de/papers/px-marr-daloze-few-versatile-vs-many-specialized-collections/"
+            >HTML</a
+          >,
+          <a
+            href="https://stefan-marr.de/downloads/px18-marr-daloze-few-versatile-vs-many-specialized-collections.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Fully Reflective Execution Environments: Virtual Machines for More
+          Flexible Software<br />
+          G. Chari, D. Garbervetsky, S. Marr, S. Ducasse<br />
+          IEEE Transactions on Software Engineering, IEEE TSE, 2018, doi:
+          <a href="https://doi.org/10.1109/TSE.2018.2812715"
+            >10.1109/TSE.2018.2812715</a
+          >,
+          <a
+            href="https://stefan-marr.de/downloads/tse18-chari-et-al-fully-reflective-execution-environments.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          A Concurrency-Agnostic Protocol for Multi-Paradigm Concurrent
+          Debugging Tools<br />
+          S. Marr, C. Torres Lopez, D. Aumayr, E. Gonzalez Boix, H.
+          Mössenböck<br />
+          Proceedings of the 13th ACM SIGPLAN International Symposium on Dynamic
+          Languages, DLS'17, ACM, 2017, doi:
+          <a href="https://doi.org/10.1145/3133841.3133842"
+            >10.1145/3133841.3133842</a
+          >,
+          <a
+            href="https://stefan-marr.de/papers/dls-marr-et-al-concurrency-agnostic-protocol-for-debugging/"
+            >HTML</a
+          >,
+          <a
+            href="https://stefan-marr.de/downloads/dls17-marr-et-al-concurrency-agnostic-protocol-for-debugging.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          A Metaobject Protocol for Optimizing Application-Specific Run-Time
+          Variability<br />
+          G. Chari, D. Garbervetsky, S. Marr<br />
+          Proceedings of the 11th Workshop on Implementation, Compilation,
+          Optimization of Object-Oriented Languages, Programs and Systems,
+          ICOOOLPS'17. (2017), doi:
+          <a href="https://doi.org/10.1145/3098572.3098577"
+            >10.1145/3098572.3098577</a
+          >,
+          <a
+            href="https://stefan-marr.de/downloads/icooolps17-chari-et-al-a-mop-for-optimizing-run-time-variability.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Toward Virtual Machine Adaption Rather than Reimplementation: Adapting
+          SOM<sub class="ns">NS</sub> for Grace<br />
+          R. Roberts, S. Marr, M. Homer, J. Noble<br />
+          Workshop on Modern Language Runtimes, Ecosystems, and VMs, MoreVMs'17.
+          Extended Abstract. (2017),
+          <a
+            href="https://stefan-marr.de/downloads/morevms17-roberts-et-al-toward-virtual-machine-adaption.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img
+          style="width: 130px"
+          src="images/victoria-university-of-wellington_logo.svg"
+          alt="Victoria University of Wellington logo"
+        />
+        <p>
+          In 2017, James Noble started using SOM<sub class="ns">NS</sub> to
+          implement the <a href="https://gracelang.org">Grace</a> language.
+          Richard Roberts turned it into a working implementation called
+          <a href="https://github.com/moth-project/Moth">Moth</a>.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/logo_uba.gif"
+          alt="Facultad de Ciencias Exactas y Naturales - Universidad de Buenos Aires, logo"
+        />
+        <p>
+          <a href="https://github.com/charig/TruffleMATE">TruffleMATE</a>, a SOM
+          variant with the Mate Metaobject protocol, which enables fully
+          reflective execution environments.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Building Efficient and Highly Run-time Adaptable Virtual Machines.<br />
+          Chari, Guido; Garbervetsky, Diego; and Marr, Stefan.<br />
+          Proceedings of the 12th Symposium on Dynamic Languages (2016),
+          <a
+            href="https://lafhis.dc.uba.ar/sites/default/files/papers/buildingEfficientReflectiveVMs.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Cross-Language Compiler Benchmarking: Are We Fast Yet?<br />
+          Marr, Stefan; Daloze, Benoit; and Mössenböck, Hanspeter.<br />
+          Proceedings of the 12th Symposium on Dynamic Languages (2016),
+          <a
+            href="https://stefan-marr.de/downloads/dls16-marr-et-al-cross-language-compiler-benchmarking-are-we-fast-yet.pdf"
+            >PDF</a
+          >,
+          <a
+            href="https://stefan-marr.de/papers/dls-marr-et-al-cross-language-compiler-benchmarking-are-we-fast-yet/"
+            >HTML</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img style="width: 100px" src="images/IBM-logo.svg" alt="IBM logo" />
+        <p>
+          In 2016, the J9 team used their new
+          <a href="https://www.youtube.com/watch?v=w5rcBiOHrB0&t=1164"
+            >JitBuilder to speed up SOM++ by 3x-4x</a
+          >. JitBuilder is an API for the J9 just-in-time compiler, which is
+          going to be open sourced as part of the
+          <a href="https://github.com/eclipse/omr#readme">Eclipse OMR project</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img style="width: 100px" src="images/IBM-logo.svg" alt="IBM logo" />
+        <p>
+          In 2015, the J9 team announced the plans to open source the platform
+          underlying their JVM implementation. As part of their JavaOne talk
+          &ldquo;<a
+            href="https://www.slideshare.net/charliegracie1/javaone-whats-in-an-object"
+            >What's in an Object? Java Garbage Collection for the Polygot</a
+          >&rdquo;, they used SOM++ as a case study to show how their garbage
+          collector can be integrated into an existing VM.
+        </p>
+      </div>
+
+      <div>
+        <img
+          style="width: 100px"
+          src="images/JKU_Logo_kurz_ohne_Wappen_engl.jpg"
+          alt="Johannes Kepler University Linz, logo"
+        />
+        <p>
+          <a href="https://github.com/smarr/SOMns"
+            >SOM<sub class="ns">NS</sub></a
+          >, a <a href="https://www.newspeaklanguage.org">Newspeak</a>
+          variant with full support for actor concurrency was developed as a
+          platform for research on the interaction of concurrency models.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Tracing vs. Partial Evaluation: Comparing Meta-Compilation Approaches
+          for Self-Optimizing Interpreters.<br />
+          Marr, Stefan; and Ducasse, Stéphane.<br />
+          Proceedings of the 2015 ACM International Conference on Object
+          Oriented Programming Systems Languages &amp; Applications, ACM,
+          (2015),
+          <a
+            href="https://stefan-marr.de/downloads/oopsla15-marr-ducasse-meta-tracing-vs-partial-evaluation.pdf"
+            >PDF</a
+          >,
+          <a
+            href="https://stefan-marr.de/papers/oopsla-marr-ducasse-meta-tracing-vs-partial-evaluation/"
+            >HTML</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Zero-Overhead Metaprogramming: Reflection and Metaobject Protocols
+          Fast and without Compromises.<br />
+          Marr, Stefan; Seaton, Chris; and Ducasse, Stéphane.<br />
+          Proceedings of the 36th ACM SIGPLAN Conference on Programming Language
+          Design and Implementation, ACM, (2015), doi:
+          <a href="https://doi.org/10.1145/2737924.2737963"
+            >10.1145/2737924.2737963</a
+          >,
+          <a
+            href="https://stefan-marr.de/downloads/pldi15-marr-et-al-zero-overhead-metaprogramming.pdf"
+            >PDF</a
+          >,
+          <a
+            href="https://stefan-marr.de/papers/pldi-marr-et-al-zero-overhead-metaprogramming/"
+            >HTML</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Are We There Yet? Simple Language-Implementation Techniques for the
+          21st Century.<br />
+          Marr, Stefan; Pape, Tobias; and De Meuter, Wolfgang.<br />
+          IEEE Software 31, no. 5 (2014): 60-67, doi:
+          <a href="https://doi.org/10.1109%2FMS.2014.98">10.1109/MS.2014.98</a>,
+          <a
+            href="https://stefan-marr.de/downloads/ieee-soft-marr-et-al-are-we-there-yet.pdf"
+            >PDF</a
+          >,
+          <a
+            href="https://stefan-marr.de/papers/ieee-soft-marr-et-al-are-we-there-yet/"
+            >HTML</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/software-languages-lab-logo.svg"
+          alt="Software Languages Lab, Vrije Universiteit Brussel, logo"
+        />
+        <p>
+          The SOM variants were used for a number of experiments such as
+          ActorSOM, a SOM with a event-loop concurrency model similar to
+          AmbientTalk.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/hhu-dus-logo.svg"
+          alt="Heinrich Heine Universit&auml;t D&uuml;sseldorf, logo"
+        />
+        <p>
+          SOM++ was optimized and extended with a generational garbage collector
+          as part of a master's thesis.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          CSOM/PL: A Virtual Machine Product Line.<br />
+          Haupt, Michael; Marr, Stefan and Hirschfeld, Robert.<br />
+          Journal of Object Technology 10, no. 12 (2011): 1-30, doi:
+          <a href="https://doi.org/10.5381/jot.2011.10.1.a12"
+            >10.5381/jot.2011.10.1.a12</a
+          >,
+          <a href="https://www.jot.fm/issues/issue_2011_01/article12.pdf">PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Type Harvesting: A Practical Approach to Obtaining Typing Information
+          in Dynamic Programming Languages.<br />
+          Haupt, Michael; Perscheid, Michael and Hirschfeld, Robert.<br />
+          Proceedings of the 2011 ACM Symposium on Applied Computing, 2011, doi:
+          <a href="https://doi.org/10.1145/1982185.1982464"
+            >10.1145/1982185.1982464</a
+          >,
+          <a
+            href="https://www.hpi.uni-potsdam.de/hirschfeld/publications/media/HauptPerscheidHirschfeld_2011_TypeHarvestingAPracticalApproachToObtainingTypingInformationInDynamicProgrammingLanguages_AcmDL.pdf"
+            >URL</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Virtual Machine Support for Many-Core Architectures: Decoupling
+          Abstract From Concrete Concurrency Models.<br />
+          Marr, Stefan; Haupt, Michael; Timbermont, Stijn; Adams, Bram; D'Hondt,
+          Theo; Costanza, Pascal and De Meuter, Wolfgang.<br />
+          Second International Workshop on Programming Languages Approaches to
+          Concurrency and Communication-cEntric Software, York, UK, 2010, doi:
+          <a href="https://doi.org/10.4204/EPTCS.17.6">10.4204/EPTCS.17.6</a>,
+          <a
+            href="https://www.stefan-marr.de/2010/02/virtual-machine-support-for-many-core-architectures-decoupling-abstract-from-concrete-concurrency-models/"
+            >URL</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          The SOM Family: Virtual Machines for Teaching and Research.<br />
+          Haupt, Michael; Hirschfeld, Robert; Pape, Tobias; Gabrysiak, Gregor;
+          Marr, Stefan; Bergmann, Arne; Heise, Arvid; Kleine, Matthias and
+          Krahn, Robert. Proceedings of the 15th Annual Conference on Innovation
+          and Technology in Computer Science Education (ITiCSE), 2010, doi:
+          <a href="https://doi.org/10.1145/1822090.1822098"
+            >10.1145/1822090.1822098</a
+          >,
+          <a
+            href="https://www.hpi.uni-potsdam.de/hirschfeld/publications/media/HauptHirschfeldPapeGabrysiakMarrBergmannHeiseKleineKrahn_2010_TheSomFamily_AcmDL.pdf"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/tu-darmstadt-logo.svg"
+          alt="Technische Universit&auml;t Darmstadt, logo"
+        />
+        <p>
+          In 2010, SOM was used by Michael Haupt to teach one graduate course at
+          Technische Universit&auml;t Darmstadt (Germany).
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          NXTalk: Dynamic Object-oriented Programming in a Constrained
+          Environment.<br />
+          Beck, Martin; Haupt, Michael and Hirschfeld, Robert. Proceedings of
+          the International Workshop on Smalltalk Technologies, 2009, doi:
+          <a href="https://doi.org/10.1145/1735935.1735942"
+            >10.1145/1735935.1735942</a
+          >, <a href="https://haupz.de/d/p/IWST2009a.pdf">PDF</a>.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/hpi_logo_kl.jpg"
+          alt="Hasso Plattner Institute, logo"
+        />
+        <p>
+          SOM was used by Michael Haupt between 2007&ndash;2009 to teach a
+          course on Virtual Machines at the Hasso Plattner Institute in Potsdam.
+          Many of the feature variants of CSOM for instance support for
+          Smalltalk images, threads, and garbage collection have been developed
+          as part of course work.
+          <a href="https://www.hpi.uni-potsdam.de/hirschfeld/projects/som/"
+            >(more)</a
+          >
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/lancaster-university-logo.svg"
+          alt="Lancaster University logo"
+        />
+        <p>
+          In 2006, SOM was used by Michael Haupt to teach one undergraduate
+          course at Lancaster University (UK).
+        </p>
+      </div>
+
+      <div>
+        <img src="images/paper-logo.png" alt="Publication" />
+        <p>
+          Related to SOM, at least in syntax and spirit:<br />
+          Design, implementation, and evaluation of the
+          <em>Resilient Smalltalk</em> embedded platform.<br />
+          Andersen, Jakob R.; Bak, Lars; Grarup, Steffen; Lund, Kasper V.;
+          Eskildsen, Toke; Hansen, Klaus Marius and Torgersen, Mads.<br />
+          Computer Languages, Systems &amp; Structures 31, no. 3&ndash;4 (2005):
+          127&ndash;141, doi:
+          <a href="https://doi.org/10.1016/j.cl.2005.02.003"
+            >10.1016/j.cl.2005.02.003</a
+          >,
+          <a href="https://inria.hal.science/hal-02969117/document#page=91"
+            >PDF</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/aarhus-university-logo.jpg"
+          alt="Aarhus University (logo)"
+        />
+        <p>
+          A kind of successor of SOM: OOVM, which went on to become
+          <em>Resilient Smalltalk</em><br />
+          <a href="https://verdich.dk/kasper/thesis.html"
+            >Revolutionizing Embedded Software</a
+          ><br />
+          Master's Thesis by Kasper Verdich Lund and Jakob Roland Andersen<br />
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="images/aarhus-university-logo.jpg"
+          alt="Aarhus University (logo)"
+        />
+        <p>
+          SOM was originally implemented at the University of &Aring;rhus in
+          Denmark by Jakob Roland Andersen, Kasper Verdich Lund, Lars Bak, Mads
+          Torgersen, and Ulrik Pagh Schultz in 2001/2002. It was used for
+          teaching object-oriented VMs and came with the original version of the
+          SOM Smalltalk libraries, test suites, and benchmarks.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
