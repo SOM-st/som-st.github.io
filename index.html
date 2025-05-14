@@ -46,7 +46,7 @@ document.getElementById("repl").style.display = "block";
     fib: <span class="som arg">n</span> = (         <span class="som comment" title="this is a comment">"defines the fib method with the argument <span class="som arg">n</span>"</span>
         ^ <span class="som arg">n</span> &lt;= <span class="som number">1</span>
             ifTrue:  <span class="som number">1</span>
-            ifFalse: [ <span class="som self">self</span> fib: (<span class="som arg">n</span> - <span class="som number">1</span>) + (<span class="som self">self</span> fib: (<span class="som arg">n</span> - <span class="som number">2</span>)) ]
+            ifFalse: [ (<span class="som self">self</span> fib: (<span class="som arg">n</span> - <span class="som number">1</span>)) + (<span class="som self">self</span> fib: (<span class="som arg">n</span> - <span class="som number">2</span>)) ]
     )
 )</code>
   <figcaption>A simple class implementing <code>#fib:</code> to compute the fibonacci numbers.<br/>
